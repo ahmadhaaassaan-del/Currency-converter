@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard - CurrencyPro</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body onload="loadDashboard()">
+
+<div class="sidebar">
+
+```
+<div class="sidebar-logo">
+    💱 CurrencyPro
+</div>
+
+<ul>
+
+    <li>
+        <i class="fa-solid fa-house"></i>
+        Dashboard
+    </li>
+
+    <li>
+        <i class="fa-solid fa-money-bill-transfer"></i>
+        Converter
+    </li>
+
+    <li>
+        <i class="fa-solid fa-chart-line"></i>
+        Markets
+    </li>
+
+    <li>
+        <i class="fa-solid fa-star"></i>
+        Favorites
+    </li>
+
+    <li>
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        History
+    </li>
+
+    <li onclick="toggleDarkMode()">
+        <i class="fa-solid fa-moon"></i>
+        Dark Mode
+    </li>
+
+    <li onclick="logoutUser()">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
+    </li>
+
+</ul>
+```
+
+</div>
+
+<div class="main-content">
+
+```
+<div class="topbar">
+
+    <h2 id="welcomeUser">
+        Welcome User
+    </h2>
+
+    <div id="liveDate"></div>
+
+</div>
+
+<!-- Converter -->
+
+<div class="converter-card">
+
+    <h2>Live Currency Converter</h2>
+
+    <input
+        type="number"
+        id="amount"
+        value="1"
+        placeholder="Enter Amount"
+    >
+
+    <!-- Flag Display -->
+
+    <div class="selected-flags">
+
+    </div>
+
+    <!-- Currency Selectors -->
+
+    <div class="currency-row">
+
+        <select id="fromCurrency"></select>
+
+        <button
+            class="swap-btn"
+            onclick="swapCurrencies()"
+        >
+            ⇄
+        </button>
+
+        <select id="toCurrency"></select>
+
+    </div>
+
+    <button
+        class="convert-btn"
+        onclick="convertCurrency()"
+    >
+        Convert Currency
+    </button>
+
+    <button
+        class="convert-btn"
+        onclick="addFavorite()"
+        style="margin-top:10px;background:#f59e0b;"
+    >
+        ⭐ Add Favorite
+    </button>
+
+    <h2 id="result">
+        Conversion Result
+    </h2>
+
+</div>
+
+<!-- Statistics -->
+
+<div class="dashboard-stats">
+
+    <div class="mini-card">
+        <h3>130+</h3>
+        <p>Currencies</p>
+    </div>
+
+    <div class="mini-card">
+        <h3>Live</h3>
+        <p>Exchange Rates</p>
+    </div>
+
+    <div class="mini-card">
+        <h3>Favorites</h3>
+        <p id="favCount">0</p>
+    </div>
+
+    <div class="mini-card">
+        <h3>History</h3>
+        <p id="historyCount">0</p>
+    </div>
+
+</div>
+
+<!-- Market Chart -->
+
+<div class="chart-card">
+
+    <h2>Currency Market Trend</h2>
+
+    <canvas id="currencyChart" height="120"></canvas>
+
+</div>
+```
+
+</div>
+
+<script src="currencies.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
